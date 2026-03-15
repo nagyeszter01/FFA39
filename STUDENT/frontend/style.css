@@ -1,0 +1,32 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+.hos-szekcio {
+    overflow: hidden;
+}
+
+.hos-hatter {
+
+}
+
+.hos-reteg {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.hos-tartalom {
+    position: relative;
+    z-index: 2;
+    min-height: calc(100vh - 76px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.szekcio-eltolas {
+
+}
