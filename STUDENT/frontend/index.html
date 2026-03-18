@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link rel="stylesheet" href="">
-    <link href="" rel="stylesheet">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -14,15 +14,50 @@
     <header class="border-bottom bg-white">
         <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
             <div class="container">
+                <a class="navbar-brand fw-bold" href="#fooldal">🍧AlomEdes Fagylalt🍧</a>
 
-  
+                <button class="navbar-toggler d-lg-none" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#foMenu" aria-controls="foMenu" aria-expanded="false" 
+                aria-label="Menu"> 
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-lg-none flex-grow-0 ms-auto"
+            id="foMenu">
+
+                <div class="d-none d-lg-flex gap-2">
+                    <a class="btn btn-outline-info" href="#fooldal">Fooldal</a>
+                    <a class="btn btn-outline-info"href="#lekerdezes">Lekerdezes</a>
+                    <a class="btn btn-outline-info" href="#statisztika">Statisztika</a>
+                    <a class="btn btn-info text-white" href="add-fagyi.html">Uj Fagylalt</a>
+                </div>
+
+                <div class="d-lg-none d-grid pt-3 gap-2">
+                    <a class="btn btn-outline-info" href="#fooldal">Fooldal</a>
+                    <a class="btn btn-outline-info"href="#lekerdezes">Lekerdezes</a>
+                    <a class="btn btn-outline-info" href="#statisztika">Statisztika</a>
+                    <a class="btn btn-info text-white" href="add-fagyi.html">Uj Fagylalt</a>
+                </div>
+            </div>
+
+
 
             </div>
         </nav>
     </header>
 
     <section id="fooldal" class="hos-szekcio position-relative min-vh-100">
-
+        <div class="hos-hatter"></div>
+        <div class="hos-reteg"></div>
+        <div class="hos-tartalom container text-center text-white">
+            <h1 class="display-4 fw-bold">AlomEdes Fagylaltozo Admin Portal</h1>
+            <p class="lead mb-4">Fagylaltok lekerdezes, szerkesztes, kuldes, torlese</p>
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                <a class="btn btn-info btn-lg text-white px-4" href="#lekerdezes">Fagylaltok megtekintese</a>
+                <a class="btn btn-outline-light btn-lg px-4" href="add-fagyi.html">Uj fagyi hozzaadasa</a>
+            </div>
+        </div>
     </section>
 
     <section id="lekerdezes" class="min-vh-100 py-5 bg-white szekcio-eltolas">
@@ -42,8 +77,9 @@
   
     </footer>
 
-    <script src=""></script>
-    <script src=""></script>
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js
+"></script>
+    <script src="app.js"></script>
     
 </body>
 
