@@ -85,13 +85,13 @@ function fagyikLekerdezese() {
 // ── Szerkesztés modal ─────────────────────────────────────────────────────────
 
 function szerkesztesModalMegnyit(gomb) {
-
+j
     const adat ={
-        fagyiNev: document.getElementById("fagyiNev").value,
-        fagyiTipus: document.getElementById("fagyiTipus").value,
-        fagyiAr: document.getElementById("fagyiAr").value,
-        fagyiLeiras: document.getElementById("fagyiLeiras").value,
-        fagyiElerheto: document.getElementById("fagyiElerheto").value,
+        fagyiNev: document.getElementById("szerkesztesNev").value,
+        fagyiTipus: document.getElementById("szerkesztesTipus").value,
+        fagyiAr: document.getElementById("szerkesztesAr").value,
+        fagyiLeiras: document.getElementById("szerkesztesLeiras").value,
+        fagyiElerheto: document.getElementById("szerkesztesElerheto").value,
     };
 
     fetch(API_URL + "/fagylaltok/" + document.getElementById("szerkesztesId").value, {
@@ -140,29 +140,34 @@ function statisztikaLekerdezese() {
 function ujFagyiMentese(e) {
     e.preventDefault();
 
-    const adat ={
-        fagyiNev: document.getElementById("fagyiNev").value,
+    const adat = {
+        fagyiNev: document.getElementById("fagyiNev").value.trim(),
         fagyiTipus: document.getElementById("fagyiTipus").value,
         fagyiAr: document.getElementById("fagyiAr").value,
-        fagyiLeiras: document.getElementById("fagyiLeiras").value,
-        fagyiElerheto: document.getElementById("fagyiElerheto").value,
+        fagyiLeiras: document.getElementById("fagyiLeiras").value.trim(),
+        fagyiElerheto: document.getElementById("fagyiElerheto").value
     };
 
-    fetch(API_URL + "/fagylaltok/" + document.getElementById("szerkesztesId").value, {
+
+    fetch(API_URL + "/fagylaltok", {
         method: "POST",
-        headers: {"Content-type": "application/json"},
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(adat)
     })
-    .then(r => r.json())
-    .then(valasz => {
-        modalHide("szerkesztesModel");
-        uzenetMutat("Sikeres modositás", valasz.uzenet, "siker");
-        fagyikLekerdezese();
+    .then(response => {
+        return response.json();
     })
-    .catch(() => {
-        uzenetMutat("Hiba", "Hiba történt a modositás során", "hiba")
+    .then(valasz => {
+        uzenetMutat("Siker mentés", valasz.uzenet, "siker");
+        fagyiUrlap.reset();
+        fagyikLekerdezese();        // lista frissítése
+    })
+    .catch(error => {
+        console.error(error);
+        uzenetMutat("Hiba", "Nem sikerült menteni a fagyit!", "hiba");
     });
-
 }
 
 // ── Indítás ───────────────────────────────────────────────────────────────────
